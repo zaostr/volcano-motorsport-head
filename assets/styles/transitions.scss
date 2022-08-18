@@ -1,0 +1,131 @@
+/* Contains all common Vue.js transition and transition-group */
+@import 'variables';
+
+.fade-left-enter,
+.fade-left-leave-to {
+  transform: translateX(-64px);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.fade-left-enter-to,
+.fade-left-leave {
+  transform: translateX(0);
+  max-height: 320px; //some amount sufficient for all possible items
+  opacity: 1;
+}
+
+.fade-left-enter-active,
+.fade-left-leave-active {
+  transition: all 200ms ease;
+}
+
+.fade-top-enter,
+.fade-top-leave-to {
+  transform: translateY(-88px);
+  opacity: 0;
+}
+
+.fade-top-enter-to,
+.fade-top-leave {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.fade-top-enter-active,
+.fade-top-leave-active {
+  transition: all 200ms ease;
+}
+
+.opacity-enter,
+.opacity-leave-to {
+  opacity: 0;
+  position: absolute;
+}
+
+.opacity-enter-to,
+.opacity-leave {
+  opacity: 1;
+}
+
+.opacity-enter-active,
+.opacity-leave-active {
+  transition: all 300ms ease;
+}
+
+.opacity-short-enter,
+.opacity-short-leave-to {
+  opacity: 0;
+}
+
+.opacity-short-enter-to,
+.opacity-short-leave {
+  opacity: 1;
+}
+
+.opacity-short-enter-active,
+.opacity-short-leave-active {
+  transition: all 150ms linear;
+}
+
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.list-enter-to,
+.list-leave {
+  opacity: 1;
+  max-height: 640px;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 200ms ease;
+}
+
+.slide-right-enter,
+.slide-right-leave-to {
+  transform: translateX(100vw);
+  // overflow: hidden;
+}
+
+.slide-right-enter-to,
+.slide-right-leave {
+  transform: translateX(0);
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 300ms ease;
+}
+
+@media (min-width: $lg-breakpoint) {
+  .slide-right-enter-active,
+  .slide-right-leave-active {
+    transition: all 450ms ease;
+  }
+}
+
+.error-enter,
+.error-leave-to {
+  opacity: 0;
+  transform: translateY(-16px);
+  max-height: 0;
+  overflow: hidden;
+}
+
+.error-enter-to,
+.error-leave {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 24px;
+}
+
+.error-enter-active,
+.error-leave-active {
+  transition: all 100ms ease;
+}

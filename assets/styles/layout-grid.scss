@@ -1,0 +1,157 @@
+/* Contains grid based grid systems of the project */
+// Based on https://dev.to/codyhouse/flash-grid-learn-css-grid-by-building-a-grid-system-2c4f
+@import 'variables.scss';
+
+$grid-columns-count: 6;
+$grid-offset: 18px;
+$grid-gutter: 18px;
+
+.grid-container {
+  padding-left: $grid-offset;
+  padding-right: $grid-offset;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100vw;
+  // overflow-x: hidden;
+
+  display: grid;
+  grid-template-columns: repeat($grid-columns-count, 1fr);
+  grid-column-gap: $grid-gutter;
+
+  > * {
+    // each grid item takes full-width by default
+    grid-column-end: span $grid-columns-count;
+  }
+
+  @for $i from 1 through $grid-columns-count {
+    // specific size columns
+    &.grid-xs-#{$i} > * {
+      grid-column-end: span #{$i};
+    }
+    // specific position
+    > .col-start-#{$i} {
+      grid-column-start: #{$i};
+    }
+    > .col-end-#{$i + 1} {
+      grid-column-end: #{$i + 1};
+    }
+  }
+}
+
+@media (min-width: $sm-breakpoint) {
+  $grid-columns-count: 12;
+
+  .grid-container {
+    grid-template-columns: repeat($grid-columns-count, 1fr);
+    grid-column-gap: $grid-gutter;
+    > * {
+      grid-column-end: span $grid-columns-count;
+    }
+
+    @for $i from 1 through $grid-columns-count {
+      &.grid-sm-#{$i} > * {
+        grid-column-end: span #{$i};
+      }
+      > .col-start-#{$i} {
+        grid-column-start: #{$i};
+      }
+      > .col-end-#{$i + 1} {
+        grid-column-end: #{$i + 1};
+      }
+    }
+  }
+}
+
+@media (min-width: $md-breakpoint) {
+  $grid-columns-count: 12;
+  $grid-offset: 0;
+  $grid-gutter: 24px;
+  $grid-width: 720px;
+
+  .grid-container {
+    width: $grid-width;
+    padding-left: $grid-offset;
+    padding-right: $grid-offset;
+
+    grid-template-columns: repeat($grid-columns-count, 1fr);
+    grid-column-gap: $grid-gutter;
+    > * {
+      grid-column-end: span $grid-columns-count;
+    }
+
+    @for $i from 1 through $grid-columns-count {
+      &.grid-md-#{$i} > * {
+        grid-column-end: span #{$i};
+      }
+      > .col-start-#{$i} {
+        grid-column-start: #{$i};
+      }
+      > .col-end-#{$i + 1} {
+        grid-column-end: #{$i + 1};
+      }
+    }
+  }
+}
+
+@media (min-width: $lg-breakpoint) {
+  $grid-offset: 0;
+  $grid-width: 960px;
+
+  .grid-container {
+    width: $grid-width;
+    padding-left: $grid-offset;
+    padding-right: $grid-offset;
+
+    @for $i from 1 through $grid-columns-count {
+      &.grid-lg-#{$i} > * {
+        grid-column-end: span #{$i};
+      }
+      > .col-start-#{$i} {
+        grid-column-start: #{$i};
+      }
+      > .col-end-#{$i + 1} {
+        grid-column-end: #{$i + 1};
+      }
+    }
+  }
+}
+
+@media (min-width: $xl-breakpoint) {
+  $grid-width: 1140px;
+
+  .grid-container {
+    width: $grid-width;
+
+    @for $i from 1 through $grid-columns-count {
+      &.grid-xl-#{$i} > * {
+        grid-column-end: span #{$i};
+      }
+      > .col-start-#{$i} {
+        grid-column-start: #{$i};
+      }
+      > .col-end-#{$i + 1} {
+        grid-column-end: #{$i + 1};
+      }
+    }
+  }
+}
+
+@media (min-width: $xxl-breakpoint) {
+  $grid-width: 1320px;
+
+  .grid-container {
+    width: $grid-width;
+
+    @for $i from 1 through $grid-columns-count {
+      &.grid-xxl-#{$i} > * {
+        grid-column-end: span #{$i};
+      }
+      > .col-start-#{$i} {
+        grid-column-start: #{$i};
+      }
+      > .col-end-#{$i + 1} {
+        grid-column-end: #{$i + 1};
+      }
+    }
+  }
+}

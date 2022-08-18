@@ -1,0 +1,85 @@
+/* Contains all variables */
+
+// Design Colors
+$classic-blue: #024fb0;
+$royal-red: #b41919;
+$royal-red-alt: #9c1616;
+$african-yellow: #fbe46f;
+$dark-gray: #282828;
+$dark-gray-alt: #0f0f0f;
+$twilight-gray: #696969;
+$twilight-gray-alt: #4f4f4f;
+$smoky-gray: #dcdcdc;
+$light-gray: #f5f5f5;
+$light-gray-alt: #e8e8e8;
+
+// volcano's : TODO: remove old ones
+$white: #fff;
+$white015: rgba(255, 255, 255, 0.15);
+$black: #000;
+$gray-050: #ededed;
+$gray-100: #e0e0e0;
+$gray-880: #1a1a1a;
+$gray-900: #141414;
+$gray-700: #474747;
+$gray-300: #adadad;
+$orange-500: #fd7222;
+$orange-550: #fd6107;
+$orange-400: #fd8e4e;
+$orange-300: #feaa7a;
+
+// Semantic colors
+// TODO: use semantic colors in project ???
+$primary-color: $classic-blue;
+
+// Special Colors
+$twitter-color: #1da1f2;
+$facebook-color: #1778f2;
+$linkedin-color: #135ab7;
+$whatsapp-color: #25d366;
+$telegram-color: #0088cc;
+
+// Grid breakpoints
+
+$sm-breakpoint: 480px;
+$md-breakpoint: 768px;
+$lg-breakpoint: 1024px;
+$xl-breakpoint: 1280px;
+$xxl-breakpoint: 1480px;
+// Other grid variables
+// TODO: is it really common grid data???
+$header-min-height: 76px;
+$footer-min-height: 248px;
+
+/* $grid-width: 100%;
+
+@media (min-width: $md-breakpoint) {
+  $grid-width: 720px;
+}
+
+@media (min-width: $lg-breakpoint) {
+  $grid-width: 960px;
+}
+
+@media (min-width: $xl-breakpoint) {
+  $grid-width: 1140px;
+}
+
+@media (min-width: $xxl-breakpoint) {
+  $grid-width: 1320px;
+} */
+
+// Specials variables
+
+$border-radius: 0;
+
+// the :export directive is the magic sauce for webpack
+// noinspection CssInvalidPseudoSelector
+:export {
+  sm-breakpoint: $sm-breakpoint;
+  md-breakpoint: $md-breakpoint;
+  lg-breakpoint: $lg-breakpoint;
+  xl-breakpoint: $xl-breakpoint;
+  xxl-breakpoint: $xxl-breakpoint;
+  header-min-height: $header-min-height;
+}

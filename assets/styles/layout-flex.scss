@@ -1,0 +1,111 @@
+/* Contains flexbox based grid systems of the project */
+
+$columns-count: 4;
+
+.main-container {
+  min-height: calc(100vh - #{$header-min-height} - #{$footer-min-height});
+}
+
+.container {
+  min-width: $min-width;
+  max-width: $max-width;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: $greed-borders;
+  padding-right: $greed-borders;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(-#{$greed-gutter} / 2);
+    margin-right: calc(-#{$greed-gutter} / 2);
+
+    .col {
+      width: 100%;
+      padding-left: calc(#{$greed-gutter} / 2);
+      padding-right: calc(#{$greed-gutter} / 2);
+    }
+
+    .col.__relative {
+      position: relative;
+    }
+
+    @for $i from 0 through $columns-count {
+      .col-xs-#{$i} {
+        width: calc(#{$i} * 100% / #{$columns-count});
+      }
+    }
+
+    &.flex-auto-fit {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+@media (min-width: $sm-breakpoint) {
+  $columns-count: 6;
+
+  .container {
+    .row {
+      @for $i from 0 through $columns-count {
+        .col-sm-#{$i} {
+          width: calc(#{$i} * 100% / #{$columns-count});
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $md-breakpoint) {
+  $columns-count: 8;
+  $greed-borders: 0;
+
+  .container {
+    width: 720px;
+    max-width: 720px;
+    padding-left: $greed-borders;
+    padding-right: $greed-borders;
+
+    .row {
+      @for $i from 0 through $columns-count {
+        .col-md-#{$i} {
+          width: calc(#{$i} * 100% / #{$columns-count});
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $lg-breakpoint) {
+  $columns-count: 12;
+
+  .container {
+    width: 960px;
+    max-width: 960px;
+
+    .row {
+      @for $i from 0 through $columns-count {
+        .col-lg-#{$i} {
+          width: calc(#{$i} * 100% / #{$columns-count});
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $xl-breakpoint) {
+  $columns-count: 12;
+
+  .container {
+    width: 1140px;
+    max-width: 1140px;
+
+    .row {
+      @for $i from 0 through $columns-count {
+        .col-xl-#{$i} {
+          width: calc(#{$i} * 100% / #{$columns-count});
+        }
+      }
+    }
+  }
+}

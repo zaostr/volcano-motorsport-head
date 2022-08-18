@@ -1,0 +1,21 @@
+/* Entry point to collect all component-independent stylesheets  */
+
+// Normalize: use this one or uncomment import of bootstrap at nuxt.config.js
+// @import 'normalize';
+
+@import 'layout-grid';
+
+// General
+@import 'general';
+
+// Grid systems: use this ones or uncomment import of bootstrap at nuxt.config.js
+// @import 'layout-flex';
+
+// Responsive
+@import 'responsive';
+
+// Animation
+@import 'transitions';
+
+// Debug: need to be commented on production
+// @import 'debug';

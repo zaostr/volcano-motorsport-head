@@ -1,0 +1,107 @@
+/* Contains development styles to visualize some moments */
+
+/*
+ ** Development layout to verify actual one
+ */
+body::before {
+  position: fixed;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  pointer-events: none;
+  z-index: 9999;
+
+  --greed-columns-count: 6;
+  --greed-offset: 18px;
+  --greed-gutter: 18px;
+
+  --greed-width: calc(100% - var(--greed-offset) * 2);
+  --greed-column-color: rgba(255, 255, 255, 0.05);
+  --greed-gutter-color: transparent;
+  --greed-column-width: calc(
+    (100% - var(--greed-gutter) * var(--greed-columns-count)) /
+      var(--greed-columns-count)
+  );
+
+  width: calc(var(--greed-width) + var(--greed-offset) * 2);
+
+  border: solid transparent;
+  border-width: 0 calc(var(--greed-offset) - var(--greed-gutter) / 2);
+
+  background-repeat: no-repeat;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--greed-gutter-color) 0,
+    var(--greed-gutter-color) calc(var(--greed-gutter) / 2),
+    var(--greed-column-color) calc(var(--greed-gutter) / 2),
+    var(--greed-column-color)
+      calc(var(--greed-column-width) + var(--greed-gutter) / 2),
+    var(--greed-gutter-color)
+      calc(var(--greed-column-width) + var(--greed-gutter) / 2),
+    var(--greed-gutter-color)
+      calc(var(--greed-column-width) + var(--greed-gutter))
+  );
+}
+
+@media (min-width: $sm-breakpoint) {
+  body::before {
+    --greed-columns-count: 12;
+  }
+}
+
+@media (min-width: $md-breakpoint) {
+  body::before {
+    --greed-columns-count: 12;
+    --greed-width: 720px;
+    --greed-gutter: 24px;
+  }
+}
+
+@media (min-width: $lg-breakpoint) {
+  body::before {
+    --greed-width: 960px;
+  }
+}
+
+@media (min-width: $xl-breakpoint) {
+  body::before {
+    --greed-width: 1140px;
+  }
+}
+
+@media (min-width: $xxl-breakpoint) {
+  body::before {
+    --greed-width: 1320px;
+  }
+}
+
+/*
+ ** Helpers
+ */
+/*
+.header {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.grid {
+  border-bottom: 1px solid;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+main li {
+  border-bottom: 1px dashed;
+  padding: 8px;
+}
+
+.footer {
+  background-color: rgba(0, 0, 255, 0.1);
+}
+
+.todo {
+  background-color: tomato;
+}
+*/
