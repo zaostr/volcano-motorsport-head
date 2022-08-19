@@ -63,7 +63,7 @@ export default {
   },
 
   mounted() {
-    const fields = [
+    /* const fields = [
       'id',
       'caption',
       'permalink',
@@ -72,13 +72,21 @@ export default {
       'thumbnail_url',
       'children',
       'timestamp'
-    ]
+    ] */
     // TODO: put to storage to not refetch each time
-    fetch(
-      'https://graph.instagram.com/me/media' +
-        `?fields=${fields.join(',')}&access_token=${this.instagramAccessToken}`
-    )
-      .then((response) => response.json())
+    // 18/08/22, mt:
+    // WORKaround: Use our justbusiness.site/instagram/loader-volcano.php script
+    // Re:
+    // fetch(
+    //  'https://graph.instagram.com/me/media' +
+    //    `?fields=${fields.join(',')}&access_token=${this.instagramAccessToken}`
+    // )
+    fetch('https://justbusiness.site/instagram/uploads/media-volcano.json', {
+      cache: 'no-cache'
+    })
+      .then((response) => {
+        return response.json()
+      })
       .then((response) => {
         if (response.data && response.data.length) {
           response.data.slice(0, 6).forEach((item) => {

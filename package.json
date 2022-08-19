@@ -1,6 +1,6 @@
 {
   "name": "volcano-motrosport",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "description": "Volcano Motorsport Project, Nuxt.js Based Frontend",
   "author": "Dmitriy Bykov <d@darwin.st>",
   "private": true,

@@ -162,6 +162,7 @@ h5,
   font-size: 36px;
   line-height: 48px;
   text-transform: uppercase;
+  text-shadow: 1px 1px 4px #333;
 
   &.__oswald {
     font-family: 'Oswald', sans-serif;
@@ -185,6 +186,7 @@ h5,
   .superior {
     font-size: 64px;
     line-height: 78px;
+    text-shadow: 0;
   }
 }
 
