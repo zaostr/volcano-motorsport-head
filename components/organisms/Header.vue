@@ -9,6 +9,18 @@
         v-if="!['xs', 'sm'].includes(deviceWidth)"
         @switch-locale="switchLocale"
       />
+
+      <ul class="header-socials-wrap">
+        <li
+          v-for="social in companyData.socials"
+          v-show="getSocialType(social)"
+          :key="social.id"
+        >
+          <a :href="social" target="_blank" class="socials-item-link">
+            <IconInstagram v-if="getSocialType(social) === 'instagram'" />
+          </a>
+        </li>
+      </ul>
     </div>
 
     <NavigationDrawer />
@@ -18,6 +30,9 @@
 <script>
 import { mapState } from 'vuex'
 
+/** utils **/
+import getSocialType from '@/utils/getSocialType'
+
 /** mixins **/
 import switchLocale from '@/mixins/switchLocale'
 
@@ -26,6 +41,7 @@ import TeamLogo from '@/components/atoms/Logo'
 import LangSwitch from '@/components/atoms/LangSwitch'
 import MenuMain from '@/components/molecules/MenuMain'
 import NavigationDrawer from '@/components/organisms/NavigationDrawer'
+import IconInstagram from '@/components/icons/Instagram'
 
 /**
  * This is a reusable header component. Consists of other components.
@@ -39,13 +55,18 @@ export default {
     NavigationDrawer,
     MenuMain,
     TeamLogo,
-    LangSwitch
+    LangSwitch,
+    IconInstagram
   },
 
   mixins: [switchLocale],
 
   computed: {
-    ...mapState(['cssVariables', 'isMenuShown', 'deviceWidth'])
+    ...mapState(['cssVariables', 'isMenuShown', 'companyData', 'deviceWidth'])
+  },
+
+  methods: {
+    getSocialType
   }
 }
 </script>
@@ -64,6 +85,12 @@ export default {
   z-index: 100;
   transition: height 150ms ease;
 }
+.header-socials-wrap {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  padding-right: 32px;
+}
 
 .navigation-container {
   display: flex;
@@ -76,6 +103,10 @@ export default {
 
   .logo-wrap {
     margin: 10px 0 0 18px;
+  }
+
+  .header-socials-wrap {
+    display: none;
   }
 }
 

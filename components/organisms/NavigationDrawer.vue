@@ -3,6 +3,18 @@
     <div class="navigation-drawer">
       <LangSwitch @switch-locale="switchLocale" />
 
+      <ul class="header-socials-wrap">
+        <li
+          v-for="social in companyData.socials"
+          v-show="getSocialType(social)"
+          :key="social.id"
+        >
+          <a :href="social" target="_blank" class="socials-item-link">
+            <IconInstagram v-if="getSocialType(social) === 'instagram'" />
+          </a>
+        </li>
+      </ul>
+
       <IconClose class="button-close" @click.native="closeDrawerHandler" />
 
       <ul class="navigation-item-list">
@@ -34,6 +46,9 @@
 <script>
 import { mapState } from 'vuex'
 
+/** utils **/
+import getSocialType from '@/utils/getSocialType'
+
 /** mixins **/
 import menuLinks from '@/mixins/menuLinks'
 import switchLocale from '@/mixins/switchLocale'
@@ -42,6 +57,7 @@ import switchLocale from '@/mixins/switchLocale'
 import DarwinText from '@/components/atoms/Text'
 import IconClose from '@/components/icons/Close'
 import LangSwitch from '@/components/atoms/LangSwitch'
+import IconInstagram from '@/components/icons/Instagram'
 
 /**
  * @version 1.0.0
@@ -50,12 +66,12 @@ import LangSwitch from '@/components/atoms/LangSwitch'
 export default {
   name: 'NavigationDrawer',
 
-  components: { LangSwitch, IconClose, DarwinText },
+  components: { LangSwitch, IconClose, DarwinText, IconInstagram },
 
   mixins: [menuLinks, switchLocale],
 
   computed: {
-    ...mapState(['isMenuShown'])
+    ...mapState(['isMenuShown', 'companyData'])
   },
 
   watch: {
@@ -73,6 +89,7 @@ export default {
   },
 
   methods: {
+    getSocialType,
     closeDrawerHandler() {
       this.$store.dispatch('setMenuShown', false)
     }
@@ -142,12 +159,20 @@ export default {
   top: 28px;
 }
 
+.header-socials-wrap {
+  position: absolute;
+  top: 60px;
+}
+
 @media (min-width: $md-breakpoint) {
   .navigation-drawer-container {
     transition: right 450ms ease-out;
   }
 
   .lang-switch {
+    display: none;
+  }
+  .header-socials-wrap {
     display: none;
   }
 }

@@ -1,5 +1,18 @@
 <template>
-  <div :class="{ __embedded: format }" :title="title" class="video-container">
+  <!-- <div :class="{ __embedded: format }" :title="title" class="video-container" :style="{width: '100%', height: '100%', backgroundImage: 'url('+thumbnail+')'}"> -->
+  <div
+    :class="{
+      __embedded: format,
+      backdrop: thumbnail
+    }"
+    :title="title"
+    class="video-container"
+    :style="{
+      width: '100%',
+      height: '100%'
+      //backgroundImage: 'url(' + thumbnail + ')'
+    }"
+  >
     <!-- eslint-disable vue/no-v-html -->
     <div
       :style="{
@@ -37,6 +50,13 @@ export default {
      * Accepts youtube/vimeo/vine link or any html
      */
     content: {
+      type: String,
+      default: ''
+    },
+    /**
+     * Accepts image link
+     */
+    thumbnail: {
       type: String,
       default: ''
     },
@@ -211,6 +231,11 @@ export default {
 .video-container {
   max-width: 100%;
   max-height: 100%;
+
+  &.backdrop {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .video-wrap {

@@ -11,6 +11,7 @@
         v-if="data.type === 'VIDEO'"
         :content="data.video"
         :title="data.text"
+        :thumbnail="data.thumbnail"
         format="video/mp4"
       />
 
@@ -97,6 +98,21 @@ export default {
 <style scoped lang="scss">
 @import './assets/styles/variables';
 
+.instagram-item > a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-color: #262626;
+}
+.instagram-item video,
+.instagram-item img,
+.instagram-item picture {
+  object-fit: contain !important;
+  display: inline !important;
+  max-width: unset;
+  max-height: unset;
+}
 .card-wrap {
   overflow: hidden;
 

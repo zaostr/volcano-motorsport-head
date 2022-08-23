@@ -184,7 +184,7 @@ h5,
 
 @media (min-width: $md-breakpoint) {
   .superior {
-    font-size: 64px;
+    font-size: 60px;
     line-height: 78px;
     text-shadow: 0;
   }
@@ -192,15 +192,15 @@ h5,
 
 @media (min-width: $lg-breakpoint) {
   .superior {
-    font-size: 84px;
-    line-height: 98px;
+    font-size: 64px;
+    line-height: 1.2;
   }
 }
 
 @media (min-width: $xxl-breakpoint) {
   .superior {
-    font-size: 111px;
-    line-height: 130px;
+    font-size: 90px;
+    line-height: 1.2;
   }
 }
 </style>

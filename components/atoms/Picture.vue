@@ -385,6 +385,9 @@ picture {
     opacity: 1;
   }
 }
+.instagram-item picture {
+  display: inline;
+}
 
 picture.aspect-ratio-box {
   position: relative;

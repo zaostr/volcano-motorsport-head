@@ -204,7 +204,7 @@ export default {
   }
 
   .info-container {
-    grid-column: 2/12;
+    grid-column: 3/11;
   }
 }
 

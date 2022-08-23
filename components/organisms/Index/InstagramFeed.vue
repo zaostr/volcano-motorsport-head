@@ -103,6 +103,7 @@ export default {
               this.innerItemsList.push({
                 id: item.id,
                 video: item.media_url,
+                thumbnail: item.thumbnail_url,
                 type: item.media_type,
                 date: item.timestamp,
                 text: item.caption,
@@ -137,6 +138,10 @@ export default {
 
 .instagram-item {
   margin-bottom: 18px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: $sm-breakpoint) and (max-width: $md-breakpoint) {
