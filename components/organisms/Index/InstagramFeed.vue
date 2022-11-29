@@ -81,7 +81,7 @@ export default {
     //  'https://graph.instagram.com/me/media' +
     //    `?fields=${fields.join(',')}&access_token=${this.instagramAccessToken}`
     // )
-    fetch('https://justbusiness.site/instagram/uploads/media-volcano.json', {
+    fetch('https://insta.justbusiness.site/instagram/uploads/media-volcano.json', {
       cache: 'no-cache'
     })
       .then((response) => {
