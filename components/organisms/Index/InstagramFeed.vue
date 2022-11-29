@@ -76,7 +76,6 @@ export default {
     // TODO: put to storage to not refetch each time
     // 18/08/22, mt:
     // WORKaround: Use our justbusiness.site/instagram/loader-volcano.php script
-    // Re:
     // fetch(
     //  'https://graph.instagram.com/me/media' +
     //    `?fields=${fields.join(',')}&access_token=${this.instagramAccessToken}`
