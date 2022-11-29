@@ -1,5 +1,5 @@
 <template>
-  <div v-if="blockList.length" class="rich-text">
+  <div v-if="blockList !== null && blockList.length" class="rich-text">
     <template v-for="(block, index) in blockList">
       <DarwinText
         v-if="block.type === 'html'"
@@ -10,14 +10,14 @@
 
       <Heading
         v-else-if="block.type === 'header'"
-        :key="index"
+        :key="index+'heading'"
         :text="block.content"
         :size="block.seo"
       />
 
       <Picture
         v-else-if="block.type === 'image'"
-        :key="index"
+        :key="index+'picture'"
         :picture="getPicture(block.content)"
         :lqip="block.content ? block.content.lqip : null"
         :author="block.author"
@@ -26,11 +26,11 @@
 
       <Video
         v-else-if="block.type === 'video'"
-        :key="index"
+        :key="index+'video'"
         :content="block.content"
         aspect-ratio="9:16"
       />
-      <pre v-else :key="index">TODO: {{ block }}</pre>
+      <pre v-else :key="index+'v'">TODO: {{ block }}</pre>
     </template>
   </div>
 </template>
